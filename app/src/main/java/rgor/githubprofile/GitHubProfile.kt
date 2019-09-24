@@ -1,6 +1,7 @@
 package rgor.githubprofile
 
-class GitHubProfile {
-    public lateinit var name : String
-    public lateinit var repoCount : Number
+class GitHubProfile(
+    val name : String,
+    val repoCount : Number,
+    val pictureUrl : String) {
 }
