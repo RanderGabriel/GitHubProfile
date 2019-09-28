@@ -11,6 +11,7 @@
         <EditText android:layout_width="0dp" android:layout_height="wrap_content"
                   android:layout_weight="1" android:hint="@string/app_name"
                   android:id="@+id/search_text"
+                  android:maxLines="1"
         />
         <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:id="@+id/search_button"
