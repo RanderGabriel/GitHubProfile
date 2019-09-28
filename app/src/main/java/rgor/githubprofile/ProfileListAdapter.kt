@@ -45,7 +45,6 @@ class ProfileListAdapter(private val dataSet: MutableList<GitHubProfile>,
 
         fun bind(profile: GitHubProfile) {
             this.title.text = profile.name
-            //this.reposCount.text = profile.repoCount.toString()
             Glide.with(itemView)
                 .load(profile.pictureUrl)
                 .apply(RequestOptions().override(80, 80))
