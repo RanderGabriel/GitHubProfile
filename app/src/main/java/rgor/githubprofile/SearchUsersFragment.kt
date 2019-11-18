@@ -1,6 +1,5 @@
 package rgor.githubprofile
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +15,7 @@ import retrofit2.Response
 class SearchUsersFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         val text = search_text.text.toString()
-        WebClient().userService().query(text).enqueue(object: Callback<UserResponse> {
+        WebClient().userService().queryUsers(text).enqueue(object: Callback<UserResponse> {
             override fun onFailure(call: Call<UserResponse>, t: Throwable) {
 
             }

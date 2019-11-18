@@ -9,5 +9,5 @@ class WebClient {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    fun userService(): UserService = client.create(UserService::class.java)
+    fun userService(): GitHubService = client.create(GitHubService::class.java)
 }

@@ -11,9 +11,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-        val fragments = listOf(
+        val fragments = listOf<Fragment>(
             SearchUsersFragment(),
-            Fragment()
+            SearchRepositoriesFragment()
         )
         val names = listOf(
             "Users",
