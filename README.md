@@ -1,4 +1,4 @@
 # GitHubProfile
-Aplicativo para listagem de perfis no github usando Retrofit para acessar a api do GitHub
+Aplicativo para listagem de perfis e repositórios do github usando Retrofit para acesso a api
 
 ![Screenshot](screenshot.png)
