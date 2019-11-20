@@ -13,18 +13,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class SearchUsersFragment : Fragment(), View.OnClickListener {
-    override fun onClick(v: View?) {
-        val text = search_text.text.toString()
-        WebClient().userService().queryUsers(text).enqueue(object: Callback<UserResponse> {
-            override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-
-            }
-
-            override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
-                adapter.replaceItems(response.body()!!.users)
-            }
-        })
-    }
 
     private lateinit var recyclerView : RecyclerView
     private lateinit var adapter : ProfileListAdapter
@@ -35,9 +23,24 @@ class SearchUsersFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         if(context==null) return
         adapter = ProfileListAdapter(ArrayList(), context!!)
-        recyclerView = recycler_view
-        recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.adapter = adapter
+        recyclerView = recycler_view.also {
+            it.layoutManager = LinearLayoutManager(activity)
+            it.adapter = adapter
+        }
         search_button.setOnClickListener(this)
+    }
+
+
+    override fun onClick(v: View?) {
+        val text = search_text.text.toString()
+        WebClient().userService().queryUsers(text).enqueue(object: Callback<UserResponse> {
+            override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+
+            }
+
+            override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
+                adapter.replaceItems(response.body()?.users)
+            }
+        })
     }
 }

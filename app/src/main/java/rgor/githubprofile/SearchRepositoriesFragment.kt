@@ -42,10 +42,11 @@ class SearchRepositoriesFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         if(context==null) return
         adapter = RepoListAdapter(ArrayList(), context!!)
-        recyclerView = recycler_view
-        recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.adapter = adapter
-        recyclerView.addOnScrollListener(PaginateListener(recyclerView.layoutManager as LinearLayoutManager, this))
+        recyclerView = recycler_view.also {
+            it.layoutManager = LinearLayoutManager(activity)
+            it.adapter = adapter
+            it.addOnScrollListener(PaginateListener(it.layoutManager as LinearLayoutManager,  this))
+        }
         search_button.setOnClickListener(this)
     }
 
